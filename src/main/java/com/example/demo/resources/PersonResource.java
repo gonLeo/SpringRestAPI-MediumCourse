@@ -5,6 +5,9 @@ import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.Optional;
 
+import com.example.demo.models.Person;
+import com.example.demo.repositories.PersonRepository;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -35,6 +38,8 @@ public class PersonResource {
     @GetMapping
     public ResponseEntity<List<Person>> getAll() {
         List<Person> persons = new ArrayList<>();
+        persons = personRepository.findAll();
+        System.out.println("Aoba");
         return new ResponseEntity<>(persons, HttpStatus.OK);
     }
 
